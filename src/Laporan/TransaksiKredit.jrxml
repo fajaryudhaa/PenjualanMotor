@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="409" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="00618ab1-bff5-4d4c-a8e2-1aecb5aa4f96">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="KODE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="gambar" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     transaksiangsuran.`nobayar` AS transaksiangsuran_nobayar,
+     transaksiangsuran.`tanggal` AS transaksiangsuran_tanggal,
+     transaksiangsuran.`kodebayar` AS transaksiangsuran_kodebayar,
+     transaksiangsuran.`pelanggan` AS transaksiangsuran_pelanggan,
+     transaksiangsuran.`pembayaran` AS transaksiangsuran_pembayaran,
+     transaksiangsuran.`angsuran` AS transaksiangsuran_angsuran,
+     transaksiangsuran.`ket` AS transaksiangsuran_ket
+FROM
+     `transaksiangsuran` transaksiangsuran
+WHERE
+     nobayar LIKE '%$P!{KODE}']]>
+	</queryString>
+	<field name="transaksiangsuran_nobayar" class="java.lang.String"/>
+	<field name="transaksiangsuran_tanggal" class="java.lang.String"/>
+	<field name="transaksiangsuran_kodebayar" class="java.lang.String"/>
+	<field name="transaksiangsuran_pelanggan" class="java.lang.String"/>
+	<field name="transaksiangsuran_pembayaran" class="java.lang.String"/>
+	<field name="transaksiangsuran_angsuran" class="java.lang.String"/>
+	<field name="transaksiangsuran_ket" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="12" width="555" height="33" uuid="48293bb9-1538-4a1c-88c2-184e2f31019b"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PT. KAWI INDAH JAYA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="75" width="555" height="1" uuid="d3b1bdc9-70a0-4689-865c-ed7a74a54452"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="65" y="45" width="489" height="28" uuid="aa8fca16-a214-445f-81e2-d90c67c1b99c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Jl. Raya Cilandak KKO No. 2 Cilandak Cilandak Jakarta Selatan DKI Jakarta, RT.2/RW.13, Cilandak, Kec. Cilandak, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12760]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="2" width="94" height="71" uuid="e61f6e87-3c1a-4495-b974-90ae20ecef42"/>
+				<imageExpression><![CDATA[$P{gambar}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="14" width="115" height="20" uuid="a2bb5fb9-1e26-458e-a0b1-b75668acb3b7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Transaksi Angsuran]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="46" width="555" height="1" uuid="88374480-80ed-4b25-a9a3-931a674152a0"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="45" width="555" height="16" uuid="e05ea17a-b826-4ea5-bfe6-bb03d130a93f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[*********************************************************************************************************************************************]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="100" height="20" uuid="3758848b-cc37-4772-ade8-66375687d012"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No Bayar	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="15" width="100" height="20" uuid="eefd9ef3-982c-4698-9bb4-0876e411b507"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaksiangsuran_nobayar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="15" width="100" height="20" uuid="44d35675-12d3-4784-8590-fb23b8f8487b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="15" width="100" height="20" uuid="51b335a5-bc77-44f2-b19f-d2887741e6ad"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaksiangsuran_tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="112" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="15" width="100" height="20" uuid="41bba978-52a1-4087-a675-4445519fefe9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaksiangsuran_kodebayar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="15" width="100" height="20" uuid="564dae47-b706-49bb-b280-254f75f4dc17"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Bayar	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="50" width="100" height="20" uuid="97e072bb-a6cf-4d51-8000-d52371a0f4fa"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaksiangsuran_pelanggan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="50" width="100" height="20" uuid="b7cd4251-72ba-4111-baca-6edb44d4ebaa"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Pelanggan	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="15" width="100" height="20" uuid="c5fbe287-d275-46bc-9827-563803dc7b3b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaksiangsuran_pembayaran}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="15" width="100" height="20" uuid="ab77c24b-6663-423b-8613-fca8c7f59f25"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pembayaran	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="50" width="100" height="20" uuid="0f79104c-ca60-4521-b3ed-65da87c8100a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaksiangsuran_angsuran}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="50" width="100" height="20" uuid="fc391662-7c8c-4813-86c3-dea73c2fe573"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Angsuran	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="84" width="100" height="20" uuid="6965a77c-3a7c-4cb0-8045-383dfbe2e816"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaksiangsuran_ket}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="84" width="100" height="20" uuid="504d1c09-319a-4cda-8536-30b9d53b7733"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keterangan	:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="9" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>

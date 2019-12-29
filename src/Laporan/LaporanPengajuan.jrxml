@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="1057" pageHeight="595" orientation="Landscape" columnWidth="1017" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="160b294c-8891-4c78-9bf0-35f2a8d857b4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="14"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TanggalAwal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TanggalAkhir" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="gambar" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     transaksikredit.`kode` AS transaksikredit_kode,
+     transaksikredit.`tanggal` AS transaksikredit_tanggal,
+     transaksikredit.`pelanggan` AS transaksikredit_pelanggan,
+     transaksikredit.`kodemtr` AS transaksikredit_kodemtr,
+     transaksikredit.`uangmuka` AS transaksikredit_uangmuka,
+     transaksikredit.`lamacicil` AS transaksikredit_lamacicil,
+     transaksikredit.`cicilanbln` AS transaksikredit_cicilanbln,
+     transaksikredit.`sisa` AS transaksikredit_sisa,
+     transaksikredit.`keterangan` AS transaksikredit_keterangan,
+     transaksikredit.`angsuran` AS transaksikredit_angsuran
+FROM
+     `transaksikredit` transaksikredit
+WHERE
+tanggal
+BETWEEN
+$P{TanggalAwal}
+AND
+$P{TanggalAkhir}]]>
+	</queryString>
+	<field name="transaksikredit_kode" class="java.lang.String"/>
+	<field name="transaksikredit_tanggal" class="java.lang.String"/>
+	<field name="transaksikredit_pelanggan" class="java.lang.String"/>
+	<field name="transaksikredit_kodemtr" class="java.lang.String"/>
+	<field name="transaksikredit_uangmuka" class="java.lang.String"/>
+	<field name="transaksikredit_lamacicil" class="java.lang.String"/>
+	<field name="transaksikredit_cicilanbln" class="java.lang.String"/>
+	<field name="transaksikredit_sisa" class="java.lang.String"/>
+	<field name="transaksikredit_keterangan" class="java.lang.String"/>
+	<field name="transaksikredit_angsuran" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="76" width="1017" height="1" uuid="23d9a1f0-8c07-4c55-a22f-a8d662dfd7ba"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="11" width="1017" height="33" uuid="9d6b5ca7-9b25-4405-ae31-0bc2d8e26733"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PT. KAWI INDAH JAYA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="47" width="489" height="28" uuid="1a39f374-695d-4fca-9d1f-60f05a975fec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Jl. Raya Cilandak KKO No. 2 Cilandak Cilandak Jakarta Selatan DKI Jakarta, RT.2/RW.13, Cilandak, Kec. Cilandak, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12760]]></text>
+			</staticText>
+			<image>
+				<reportElement x="191" y="0" width="94" height="71" uuid="84dafe74-0f1e-4a17-a9a6-28072aece85c"/>
+				<imageExpression><![CDATA[$P{gambar}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="89" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="50" width="1017" height="1" uuid="84305e8c-53e9-4dbf-b15a-bcf5d7c06c38"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="427" y="16" width="169" height="20" uuid="4dee143d-630d-48ad-b1a4-7963629fba0e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Transaksi Pengajuan Cicilan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="518" y="59" width="18" height="20" uuid="02aebca4-4c2f-4006-8637-8fa7f5e00702"/>
+				<text><![CDATA[s/d]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="547" y="59" width="100" height="20" uuid="dcd58f09-5b5e-4fbc-bf0d-d591d5e88697"/>
+				<textFieldExpression><![CDATA[$P{TanggalAkhir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="59" width="87" height="20" uuid="0f47530f-c99e-4455-9626-aea3fc93c2ec"/>
+				<textFieldExpression><![CDATA[$P{TanggalAwal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="371" y="59" width="40" height="20" uuid="157fe1dc-d495-4882-9349-57b4a13c644b"/>
+				<text><![CDATA[Periode]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="909db0c4-4016-4ed3-88a4-571a36f0cf4e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="2046193a-e5c6-45be-b5ef-5a427a4b2ba0"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" uuid="352c0200-7e15-4583-9e88-0330688a4953"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pelanggan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="fd9506e1-598e-43d9-a458-45fbcdb00985"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Motor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="20" uuid="e8618f68-6460-450d-b41a-856508a5a437"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Uang Muka]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="100" height="20" uuid="4a498f5f-ee8c-4192-83b6-ad30f68097ed"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lama Kredit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="0" width="100" height="20" uuid="9a27e7af-c7ee-4211-bb17-bcd1efaac0ea"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cicialan Perbulan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="0" width="100" height="20" uuid="23e4b65f-7e05-4c3c-9561-ce938ddf058c"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sisa Kredit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="800" y="0" width="100" height="20" uuid="21a71d03-a498-46c3-8571-3a6bf71dae91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="900" y="0" width="100" height="20" uuid="bcd8c82b-2504-44d3-b3d9-192e4b000a2a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Angsuran Ke]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="bbefbaaa-1abe-4338-ba98-00df9c6811f8"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_kode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="ee5c648d-280a-4ebf-b4eb-ac2f13fc6c55"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_pelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="ef439dd9-2e2e-43e4-8601-fc76302ce2cf"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_kodemtr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="bfbc4659-f615-48fa-99b2-461c698b88d3"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_uangmuka}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="100" height="20" uuid="e4000bb1-039f-4ebf-b94f-6699cb4f85b5"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_lamacicil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="0" width="100" height="20" uuid="ac8558bb-57ee-4706-baab-114369497c0b"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_cicilanbln}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="6ece25b1-29fd-4c8a-b545-c866a55954cb"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="700" y="0" width="100" height="20" uuid="8e3c0d30-c647-4124-83a6-d0c24c58b03f"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_sisa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="800" y="0" width="100" height="20" uuid="bd055ed1-f01b-4608-b6c3-951f991b0041"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_keterangan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="900" y="0" width="100" height="20" uuid="d0ca3b16-412a-473e-9a38-34daa5a4d92c"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transaksikredit_angsuran}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="136" splitType="Stretch">
+			<line>
+				<reportElement x="845" y="112" width="141" height="1" uuid="5caa33d1-650c-4fba-8ab1-d58bd1fce8f4"/>
+			</line>
+			<staticText>
+				<reportElement x="846" y="93" width="124" height="20" uuid="4842b0b1-6c0f-4774-b651-1eaf38e52b37"/>
+				<text><![CDATA[Sukiyo, S.Kom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="845" y="113" width="125" height="20" uuid="5946a6e6-5f8a-43c5-9ecf-63c6cab39c4e"/>
+				<text><![CDATA[Kepala Biro USDM/IT]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="846" y="10" width="154" height="20" uuid="c7ce0147-2828-49be-a4c1-dde2959785d4"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Jakarta, "+new SimpleDateFormat("EEEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="4" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>
